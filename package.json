@@ -1,22 +1,38 @@
 {
-  "name": "polymap",
+  "name": "multidict",
   "version": "1.0.0",
-  "description": "PolyMap is a TypeScript implementation of a key-value store that supports multiple keys and values.",
-  "main": "./dist/PolyMap.js",
-  "module": "./dist/PolyMap.mjs",
-  "types": "./dist/PolyMap.d.ts",
-  "typings": "./dist/PolyMap.d.ts",
+  "description": "MultiDict is a TypeScript implementation of a key-value store that supports multiple keys and values.",
+  "main": "./dist/MultiDict.js",
+  "module": "./dist/MultiDict.mjs",
+  "types": "./dist/MultiDict.d.ts",
+  "typings": "./dist/MultiDict.d.ts",
   "exports": {
     ".": {
-      "types": "./dist/PolyMap.d.ts",
-      "import": "./dist/PolyMap.mjs",
-      "require": "./dist/PolyMap.js"
+      "types": "./dist/MultiDict.d.ts",
+      "import": "./dist/MultiDict.mjs",
+      "require": "./dist/MultiDict.js"
     },
     "./package.json": "./package.json"
   },
-  "repository": "https://github.com/vicary/polymap.git",
+  "repository": "https://github.com/vicary/multidict.git",
   "author": "Vicary A. <vicary.archangel@member.mensa.org>",
   "license": "MIT",
+  "keywords": [
+    "dictionary",
+    "map",
+    "object map",
+    "array map",
+    "graph",
+    "two-way association",
+    "bidirectional mapping",
+    "many to many relationship",
+    "multiple keys",
+    "multiple values"
+  ],
+  "funding": {
+    "type": "github",
+    "url": "https://github.com/sponsors/vicary"
+  },
   "packageManager": "yarn@3.5.0",
   "prettier": {
     "arrowParens": "always",

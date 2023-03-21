@@ -1,5 +1,5 @@
 /**
- * PolyMap.ts: A multi-key multi-value map implementation.
+ * MultiDict.ts: A multi-key multi-value map implementation.
  *
  * - When a pair of KV is set, both keys and values are indexed as keys in the
  * map, allowing reverse lookups.
@@ -8,7 +8,7 @@
  *
  * - Deleting a key deletes it from both directions.
  */
-export class PolyMap<K, V> implements Omit<Map<K | V, Set<K | V>>, "set"> {
+export class MultiDict<K, V> implements Omit<Map<K | V, Set<K | V>>, "set"> {
   // This type doesn't work: `Map<K, Set<V>> | Map<V, Set<K>>`
   #map = new Map<K | V, Set<K | V>>();
 
@@ -105,6 +105,6 @@ export class PolyMap<K, V> implements Omit<Map<K | V, Set<K | V>>, "set"> {
   }
 
   get [Symbol.toStringTag]() {
-    return "PolyMap";
+    return "MultiDict";
   }
 }

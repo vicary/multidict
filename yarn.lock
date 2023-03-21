@@ -236,9 +236,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"polymap@workspace:.":
+"multidict@workspace:.":
   version: 0.0.0-use.local
-  resolution: "polymap@workspace:."
+  resolution: "multidict@workspace:."
   dependencies:
     esbuild: ^0.17.12
     typescript: ^5.0.2
