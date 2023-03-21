@@ -2,10 +2,13 @@
   "name": "polymap",
   "version": "1.0.0",
   "description": "PolyMap is a TypeScript implementation of a key-value store that supports multiple keys and values.",
-  "main": "dist/PolyMap.js",
-  "module": "dist/PolyMap.mjs",
+  "main": "./dist/PolyMap.js",
+  "module": "./dist/PolyMap.mjs",
+  "types": "./dist/PolyMap.d.ts",
+  "typings": "./dist/PolyMap.d.ts",
   "exports": {
     ".": {
+      "types": "./dist/PolyMap.d.ts",
       "import": "./dist/PolyMap.mjs",
       "require": "./dist/PolyMap.js"
     },
