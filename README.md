@@ -83,4 +83,4 @@ MultiDict is licensed under the MIT License. See the LICENSE file for more infor
 
 If you find this project useful, please consider supporting it by donating to the author.
 
-[![Donate](https://img.shields.io/badge/Donate-PayPal-green.svg)](https://www.paypal.me/andrewjmeier)
+[![Donate](https://img.shields.io/static/v1?label=Sponsor&message=%E2%9D%A4&logo=GitHub)](https://github.com/sponsors/vicary)
