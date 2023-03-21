@@ -27,7 +27,7 @@ const main = async () => {
       format: "esm",
       outfile: "dist/MultiDict.mjs",
       platform: "browser",
-      target: ["es2022"],
+      target: ["node14"],
     }),
     esbuild.build({
       ...buildConfig,

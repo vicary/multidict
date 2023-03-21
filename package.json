@@ -1,6 +1,6 @@
 {
   "name": "multidict",
-  "version": "1.0.3",
+  "version": "1.0.5",
   "description": "MultiDict is a TypeScript implementation of a key-value store that supports multiple keys and values.",
   "main": "./dist/MultiDict.js",
   "module": "./dist/MultiDict.mjs",
@@ -49,7 +49,8 @@
     "useTabs": false
   },
   "scripts": {
-    "build": "node build.js && tsc"
+    "build": "node build.js && tsc",
+    "prepack": "yarn build"
   },
   "devDependencies": {
     "esbuild": "^0.17.12",
