@@ -2,7 +2,11 @@ lockfileVersion: 5.4
 
 specifiers:
   esbuild: ^0.17.12
+  multidict: link:/Users/vicary/Documents/Projects/vicary/multidict
   typescript: ^5.0.2
+
+dependencies:
+  multidict: 'link:'
 
 devDependencies:
   esbuild: 0.17.12

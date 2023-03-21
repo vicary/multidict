@@ -10,25 +10,30 @@ const main = async () => {
     await fs.rm(OUTPUT_DIR, { recursive: true });
   } catch {}
 
+  /**
+   * @type {import("esbuild").BuildOptions}
+   */
+  const buildConfig = {
+    bundle: true,
+    entryPoints: ["src/MultiDict.ts"],
+    minify: true,
+    keepNames: true,
+    sourcemap: "inline",
+  };
+
   await Promise.all([
     esbuild.build({
-      bundle: true,
-      entryPoints: ["src/MultiDict.ts"],
+      ...buildConfig,
       format: "esm",
-      minify: true,
       outfile: "dist/MultiDict.mjs",
       platform: "browser",
-      sourcemap: "inline",
       target: ["es2022"],
     }),
     esbuild.build({
-      bundle: true,
-      entryPoints: ["src/MultiDict.ts"],
+      ...buildConfig,
       format: "cjs",
-      minify: true,
       outfile: "dist/MultiDict.js",
       platform: "node",
-      sourcemap: "inline",
       target: ["node12"],
     }),
   ]);
