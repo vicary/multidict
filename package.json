@@ -1,6 +1,6 @@
 {
   "name": "multidict",
-  "version": "1.0.5",
+  "version": "1.0.6",
   "description": "MultiDict is a TypeScript implementation of a key-value store that supports multiple keys and values.",
   "main": "./dist/MultiDict.js",
   "module": "./dist/MultiDict.mjs",
@@ -55,8 +55,5 @@
   "devDependencies": {
     "esbuild": "^0.17.12",
     "typescript": "^5.0.2"
-  },
-  "dependencies": {
-    "multidict": "link:/Users/vicary/Documents/Projects/vicary/multidict"
   }
 }
