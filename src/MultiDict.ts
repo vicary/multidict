@@ -12,6 +12,7 @@ export class MultiDict<K, V> implements Omit<Map<K | V, Set<K | V>>, "set"> {
   // This type doesn't work: `Map<K, Set<V>> | Map<V, Set<K>>`
   #map = new Map<K | V, Set<K | V>>();
 
+  /** Delete all entries */
   clear() {
     this.#map.clear();
   }
@@ -48,35 +49,60 @@ export class MultiDict<K, V> implements Omit<Map<K | V, Set<K | V>>, "set"> {
     return result;
   }
 
-  entries() {
+  /**
+   * Returns an iterable of key, value pairs for every entry in the map.
+   *
+   * Keys and values are interchangeable, expect all existing keys and values
+   * being invoked as the "key" once.
+   */
+  entries(): IterableIterator<[K | V, Set<K | V>]> {
     return this.#map.entries();
   }
 
+  /**
+   * Calls a function for each key-value pair in the map.
+   *
+   * Keys and values are interchangeable, expect all existing keys and values
+   * being invoked as the "key" once.
+   */
   forEach(
     callbackfn: (
       value: Set<K | V>,
       key: K | V,
       map: Map<K | V, Set<K | V>>,
     ) => void,
-    thisArg?: any,
-  ) {
+    thisArg?: unknown,
+  ): void {
     return this.#map.forEach(callbackfn, thisArg);
   }
 
+  /**
+   * Returns a Set of values for the specified key.
+   */
   get(key: K): Set<V> | undefined;
   get(key: V): Set<K> | undefined;
   get(key: K | V) {
     return this.#map.get(key);
   }
 
-  has(key: K | V) {
+  /**
+   * Returns a boolean indicating whether an element with the specified key
+   */
+  has(key: K | V): boolean {
     return this.#map.has(key);
   }
 
-  keys() {
+  /**
+   * Keys and values are interchangable, this is an iterator for all keys and
+   * values.
+   */
+  keys(): IterableIterator<K | V> {
     return this.#map.keys();
   }
 
+  /**
+   * Adds or updates a key-value pair in the map.
+   */
   set(key: K, value: V): this;
   set(key: V, value: K): this;
   set(key: K | V, value: K | V) {
@@ -92,19 +118,29 @@ export class MultiDict<K, V> implements Omit<Map<K | V, Set<K | V>>, "set"> {
     return this;
   }
 
-  get size() {
+  /**
+   * Return the size of the map. Since keys and values are interchangeable, it
+   * is the total number of unique keys and values.
+   */
+  get size(): number {
     return this.#map.size;
   }
 
-  values() {
+  /**
+   * Returns an iterable of values in the map.
+   *
+   * Keys and values are interchangeable, therefore values set as keys will be
+   * returned as a single-value Set.
+   */
+  values(): IterableIterator<Set<K | V>> {
     return this.#map.values();
   }
 
-  [Symbol.iterator]() {
+  [Symbol.iterator](): IterableIterator<[K | V, Set<K | V>]> {
     return this.#map[Symbol.iterator]();
   }
 
-  get [Symbol.toStringTag]() {
+  get [Symbol.toStringTag](): string {
     return "MultiDict";
   }
 }

@@ -188,5 +188,5 @@ buck-out/
 # Local notes
 .*.md
 
-# esbuild output
-dist/
+# Deno DMT output directory
+dnt/
