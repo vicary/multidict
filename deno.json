@@ -1,18 +1,7 @@
 {
   "name": "@vicary/multidict",
-  "version": "1.0.7",
+  "version": "1.0.8",
   "exports": "./src/MultiDict.ts",
-  "publish": {
-    "exclude": [
-      ".github/**",
-      ".vscode/**",
-      ".yarn/**",
-      "dist/**",
-      "node_modules/**",
-      ".pnp.*",
-      ".yarnrc.yml"
-    ]
-  },
   "lock": false,
   "nodeModulesDir": false
 }

@@ -16,7 +16,7 @@ await build({
     name: "multidict",
     version: pkg.version,
     description:
-      "MultiDict is a TypeScript implementation of a key-value store that supports multiple keys and values.",
+      "MultiDict is an extension of Map that supports bidirectioal, many to many relations among multiple keys and values.",
     license: "MIT",
     repository: {
       type: "git",

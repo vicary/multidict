@@ -1,24 +1,9 @@
 # MultiDict
 
-MultiDict is a TypeScript implementation of a key-value store that allows for
-multiple keys and values to be associated with each other. It is similar to a
-standard Map object, but with additional functionality to support multiple
-key-value pairs.
-
-## Installation
-
-```bash
-# NPM
-> npm install multidict
-
-# JSR
-> npx jsr add @vicary/multidict
-```
+MultiDict is an extension of Map that supports bidirectioal, many to many
+relations amongst multiple keys and values.
 
 ## Usage
-
-To use MultiDict in your TypeScript project, simply import the MultiDict class
-and create a new instance:
 
 ```ts
 import { MultiDict } from "multidict";
@@ -45,12 +30,12 @@ for (const [key, values] of myMap) {
 }
 ```
 
-MultiDict supports all of the standard Map methods, having the return type as a
-Set.
+MultiDict supports all of the standard Map methods, but always return a Set of
+values.
 
-You may easily deletes all relationships associated with a key or value with the
-`delete()` method, or only deletes one specific key-value pair by specifying the
-value as well:
+You can easily deletes all values associated with a key with the `delete()`
+method, or only deletes one specific key-value pair by specifying the value as
+well:
 
 ```ts
 myMap.set("foo", 1);
@@ -66,8 +51,6 @@ console.log(myMap.get(2)); // -> undefined
 ```
 
 ## API
-
-MultiDict supports the following methods:
 
 1. `clear()`: Clears all key-value pairs from the store.
 1. `delete(key: K, value?: V): boolean`: Deletes a key-value pair from the
@@ -85,9 +68,9 @@ MultiDict supports the following methods:
    present in the store, false otherwise.
 1. `keys()`: Returns an iterator of all keys in the store.
 1. `set(key: K, value: V): this`: Associates a key with a value in the store.
-   Returns the MultiDict instance to allow for method chaining. If the key or
-   value already exists in the store, the existing values associated with the
-   key or value are preserved, and the new value is added to the existing set of
+   Returns the same instance to allow for method chaining. If the key or value
+   already exists in the store, the existing values associated with the key or
+   value are preserved, and the new value is added to the existing set of
    values.
 1. `size`: Returns the number of key-value pairs in the store.
 1. `values()`: Returns an iterator of all values in the store.
