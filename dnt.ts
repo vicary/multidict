@@ -1,22 +1,20 @@
-// Bundle src/MultiDict.ts into both ESM and CJS format.
-import { build, emptyDir } from "https://deno.land/x/dnt/mod.ts";
+// Bundle src/mod.ts into both ESM and CJS format.
+import { build, emptyDir } from "@deno/dnt";
 import pkg from "./deno.json" with { type: "json" };
 
 await emptyDir("./dnt");
 
 await build({
-  entryPoints: ["./src/MultiDict.ts"],
+  entryPoints: ["./mod.ts"],
   outDir: "./dnt",
   shims: {
-    // see JS docs for overview and more options
-    deno: true,
+    deno: false,
   },
   package: {
     // package.json properties
     name: "multidict",
     version: pkg.version,
-    description:
-      "MultiDict is an extension of Map that supports bidirectioal, many to many relations among multiple keys and values.",
+    description: pkg.description,
     license: "MIT",
     repository: {
       type: "git",

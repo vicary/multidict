@@ -15,7 +15,5 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      - uses: denoland/setup-deno@v1
-
       - name: Publish package
-        run: deno publish
+        run: npx jsr publish

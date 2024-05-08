@@ -1,5 +1,5 @@
 /**
- * MultiDict.ts: A multi-key multi-value map implementation.
+ * A multi-key multi-value map implementation.
  *
  * - When a pair of KV is set, both keys and values are indexed as keys in the
  * map, allowing reverse lookups.
