@@ -1,9 +1,3 @@
 {
-  "editor.defaultFormatter": "denoland.vscode-deno",
-  "[github-actions-workflow]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
-  },
-  "[typescript]": {
-    "editor.defaultFormatter": "denoland.vscode-deno"
-  }
+  "editor.defaultFormatter": "denoland.vscode-deno"
 }
