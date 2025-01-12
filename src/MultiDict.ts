@@ -1,3 +1,5 @@
+import { ImmutableSet } from "./ImmutableSet.ts";
+
 /**
  * A multi-key multi-value map implementation.
  *
@@ -82,8 +84,12 @@ export class MultiDict<K, V>
    */
   get(key: K): ReadonlySet<V> | undefined;
   get(key: V): ReadonlySet<K> | undefined;
-  get(key: K | V) {
-    return this.#map.get(key) as ReadonlySet<K | V> | undefined;
+  get(key: K | V): ReadonlySet<K | V> | undefined {
+    const set = this.#map.get(key);
+
+    if (set) {
+      return new ImmutableSet(set);
+    }
   }
 
   /**
@@ -111,10 +117,8 @@ export class MultiDict<K, V>
   }
 
   #set(key: K | V, value: K | V) {
-    const set = this.#map.get(key) ?? new Set();
-    set.add(value);
-
-    this.#map.set(key, set);
+    this.#map.get(key)?.add(value) ??
+      this.#map.set(key, new Set([value]));
 
     return this;
   }
