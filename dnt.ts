@@ -1,5 +1,5 @@
 // Bundle src/mod.ts into both ESM and CJS format.
-import { build } from "@deno/dnt";
+import { build } from "jsr:@deno/dnt@^0.41.1";
 import pkg from "./deno.json" with { type: "json" };
 
 await Deno.remove("./dnt", { recursive: true }).catch(() => {});

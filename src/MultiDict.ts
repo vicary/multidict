@@ -8,8 +8,9 @@
  *
  * - Deleting a key deletes it from both directions.
  */
-export class MultiDict<K, V> implements Omit<Map<K | V, Set<K | V>>, "set"> {
-  // This type doesn't work: `Map<K, Set<V>> | Map<V, Set<K>>`
+export class MultiDict<K, V>
+  implements Omit<Map<K | V, ReadonlySet<K | V>>, "set"> {
+  // This type doesn't work: `Map<K, ReadonlySet<V>> | Map<V, ReadonlySet<K>>`
   #map = new Map<K | V, Set<K | V>>();
 
   /** Delete all entries */
@@ -55,7 +56,7 @@ export class MultiDict<K, V> implements Omit<Map<K | V, Set<K | V>>, "set"> {
    * Keys and values are interchangeable, expect all existing keys and values
    * being invoked as the "key" once.
    */
-  entries(): IterableIterator<[K | V, Set<K | V>]> {
+  entries(): MapIterator<[K | V, ReadonlySet<K | V>]> {
     return this.#map.entries();
   }
 
@@ -67,9 +68,9 @@ export class MultiDict<K, V> implements Omit<Map<K | V, Set<K | V>>, "set"> {
    */
   forEach(
     callbackfn: (
-      value: Set<K | V>,
+      value: ReadonlySet<K | V>,
       key: K | V,
-      map: Map<K | V, Set<K | V>>,
+      map: Map<K | V, ReadonlySet<K | V>>,
     ) => void,
     thisArg?: unknown,
   ): void {
@@ -79,10 +80,10 @@ export class MultiDict<K, V> implements Omit<Map<K | V, Set<K | V>>, "set"> {
   /**
    * Returns a Set of values for the specified key.
    */
-  get(key: K): Set<V> | undefined;
-  get(key: V): Set<K> | undefined;
+  get(key: K): ReadonlySet<V> | undefined;
+  get(key: V): ReadonlySet<K> | undefined;
   get(key: K | V) {
-    return this.#map.get(key);
+    return this.#map.get(key) as ReadonlySet<K | V> | undefined;
   }
 
   /**
@@ -96,7 +97,7 @@ export class MultiDict<K, V> implements Omit<Map<K | V, Set<K | V>>, "set"> {
    * Keys and values are interchangable, this is an iterator for all keys and
    * values.
    */
-  keys(): IterableIterator<K | V> {
+  keys(): MapIterator<K | V> {
     return this.#map.keys();
   }
 
@@ -132,11 +133,11 @@ export class MultiDict<K, V> implements Omit<Map<K | V, Set<K | V>>, "set"> {
    * Keys and values are interchangeable, therefore values set as keys will be
    * returned as a single-value Set.
    */
-  values(): IterableIterator<Set<K | V>> {
+  values(): MapIterator<ReadonlySet<K | V>> {
     return this.#map.values();
   }
 
-  [Symbol.iterator](): IterableIterator<[K | V, Set<K | V>]> {
+  [Symbol.iterator](): MapIterator<[K | V, ReadonlySet<K | V>]> {
     return this.#map[Symbol.iterator]();
   }
 

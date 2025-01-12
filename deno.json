@@ -1,11 +1,8 @@
 {
   "name": "@vicary/multidict",
   "description": "MultiDict is an extension of Map that supports bidirectioal, many to many relations among multiple keys and values.",
-  "version": "1.0.9",
+  "version": "1.0.10",
   "exports": "./mod.ts",
   "lock": false,
-  "nodeModulesDir": false,
-  "imports": {
-    "@deno/dnt": "jsr:@deno/dnt@^0.41.1"
-  }
+  "nodeModulesDir": "none"
 }
